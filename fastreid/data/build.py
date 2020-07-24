@@ -23,7 +23,9 @@ def build_reid_train_loader(cfg):
 
     train_items = list()
     for d in cfg.DATASETS.NAMES:
-        dataset = DATASET_REGISTRY.get(d)(root=_root, combineall=cfg.DATASETS.COMBINEALL)
+        dataset = DATASET_REGISTRY.get(d)(
+            root=_root, dataset_indices=cfg.DATASETS.INDICES, combineall=cfg.DATASETS.COMBINEALL
+        )
         if comm.is_main_process():
             dataset.show_train()
         train_items.extend(dataset.train)
@@ -57,7 +59,7 @@ def build_reid_train_loader(cfg):
 def build_reid_test_loader(cfg, dataset_name):
     test_transforms = build_transforms(cfg, is_train=False)
 
-    dataset = DATASET_REGISTRY.get(dataset_name)(root=_root)
+    dataset = DATASET_REGISTRY.get(dataset_name)(root=_root, dataset_indices=cfg.DATASETS.INDICES)
     if comm.is_main_process():
         dataset.show_test()
     test_items = dataset.query + dataset.gallery

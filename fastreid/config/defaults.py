@@ -163,6 +163,12 @@ _C.DATASETS.TESTS = ("Market1501",)
 # Combine trainset and testset joint training
 _C.DATASETS.COMBINEALL = False
 
+_C.DATASETS.INDICES = CN()
+_C.DATASETS.INDICES.TRAIN = ""
+_C.DATASETS.INDICES.QUERY = ""
+_C.DATASETS.INDICES.GALLERY = ""
+_C.DATASETS.INDICES.LABEL_MAP = ""
+
 # -----------------------------------------------------------------------------
 # DataLoader
 # -----------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+_BASE_: "../Base-bagtricks.yml"
+
+DATASETS:
+  NAMES: ("Retail",)
+  TESTS: ("Retail",)
+  INDICES:
+    TRAIN: /data2/datasets/clobotics/embedding/indices/ccth_r5_png_r6_chinadrink_r7.txt
+    QUERY: /data2/datasets/clobotics/embedding/testsets/ine-daily-sampling-20200706/query.txt
+    GALLERY: /data2/datasets/clobotics/embedding/testsets/ine-daily-sampling-20200706/gallery_distractor.txt
+    LABEL_MAP: /data2/datasets/clobotics/embedding/indices/inedailysampling20200706_ccth_r5_png_r6_chinadrink_r7_class_list.txt
+
+OUTPUT_DIR: "logs/market1501/bagtricks_R50"

@@ -12,6 +12,7 @@ Registry for datasets
 It must returns an instance of :class:`Backbone`.
 """
 
+from .retail import Retail
 from .cuhk03 import CUHK03
 from .dukemtmcreid import DukeMTMC
 from .market1501 import Market1501
